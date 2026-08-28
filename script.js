@@ -63,22 +63,23 @@ function getSelectedCountries(){
  */
 function generateVlessConfig(country,uuid,host,premiumIp,port,remarks){
     const remark = `${remarks}-${country.name}`;
-    const path = `/proxyip=${country.code}.proxyip.cmliussss.net`;
+    const pathRaw = `/proxyip=${country.code}.proxyip.cmliussss.net`;
     let addr = host.trim();
     if(premiumIp.trim()!=="") addr = premiumIp.trim();
 
-    // 标准vless参数，对应Xray/V2ray规范
-    const params = new URLSearchParams();
-    params.set("type","ws");
-    params.set("security","tls");
-    params.set("encryption","none");
-    params.set("path",path);
-    params.set("sni",host.trim());
+    // 手动拼接query，不要用URLSearchParams！避免path被编码%2F
+    const queryParts = [
+        "type=ws",
+        "security=tls",
+        "encryption=none",
+        `path=${pathRaw}`,
+        `sni=${host.trim()}`
+    ];
+    const queryStr = queryParts.join("&");
 
-    // ✅输出标准 vless:// 链接，不是http
-    return `vless://${uuid}@${addr}:${port}?${params.toString()}#${encodeURIComponent(remark)}`;
+    // 输出标准vless://链接
+    return `vless://${uuid}@${addr}:${port}?${queryStr}#${encodeURIComponent(remark)}`;
 }
-
 //生成订阅
 function generateSubscriptions(){
     const uuid = document.getElementById("uuid").value.trim();
