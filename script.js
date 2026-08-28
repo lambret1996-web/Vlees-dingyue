@@ -62,7 +62,8 @@ function getSelectedCountries(){
  */
 function generateVlessConfig(country,uuid,host,premiumIp,port,remarks){
     const remark = `${remarks}-${country.name}`;
-    const pathRaw = `/proxyip=${country.code}.proxyip.cmliussss.net`;
+    //原来：const pathRaw = `/proxyip=${country.code}.proxyip.cmliussss.net`;
+const pathRaw = `/proxyip=${country.proxyipDomain}`;
     let addr = host.trim();
     if(premiumIp.trim()!=="") addr = premiumIp.trim();
 
