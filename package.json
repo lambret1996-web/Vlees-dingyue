@@ -1,0 +1,12 @@
+{
+  "name": "vless-converter",
+  "version": "1.0.0",
+  "description": "Multi-country VLESS subscription converter for Shadowrocket",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required'"
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
