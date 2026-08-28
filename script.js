@@ -5,7 +5,7 @@ let countries = [
     {code:"SG",emoji:"🇸🇬",name:"新加坡", proxyipDomain:"77.93.90.231"},
     {code:"DE",emoji:"🇩🇪",name:"德国", proxyipDomain:"104.194.159.48"},
     {code:"GB",emoji:"🇬🇧",name:"英国", proxyipDomain:"68.168.31.169"},
-    {code:"KR",emoji:"🇰🇷",name:"韩国", proxyipDomain:"43.128.130.43"},
+    {code:"KR",emoji:"🇰🇷",name:"韩国", proxyipDomain:"20.41.123.20"},
     {code:"CA",emoji:"🇨🇦",name:"加拿大", proxyipDomain:"40.233.71.238"},
     {code:"FR",emoji:"🇫🇷",name:"法国", proxyipDomain:"135.125.57.244"},
     {code:"AU",emoji:"🇦🇺",name:"澳大利亚", proxyipDomain:"207.148.81.4"},
