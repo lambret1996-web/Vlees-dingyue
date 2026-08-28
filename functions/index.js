@@ -5,7 +5,7 @@
  * Features:
  * - VLESS Base64
  * - Clash Meta
- * - Sing-box
+ * - Sing-boxs
  * - Shadowrocket
  * - Multi node management
  */
