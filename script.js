@@ -1,17 +1,16 @@
 // script.js 纯前端VLESS链接生成器，无后端，浏览器本地运算
 let countries = [
-    {code:"US",emoji:"🇺🇸",name:"美国"},
-    {code:"JP",emoji:"🇯🇵",name:"日本"},
-    {code:"SG",emoji:"🇸🇬",name:"新加坡"},
-    {code:"DE",emoji:"🇩🇪",name:"德国"},
-    {code:"GB",emoji:"🇬🇧",name:"英国"},
-    {code:"KR",emoji:"🇰🇷",name:"韩国"},
-    {code:"CA",emoji:"🇨🇦",name:"加拿大"},
-    {code:"FR",emoji:"🇫🇷",name:"法国"},
-    {code:"AU",emoji:"🇦🇺",name:"澳大利亚"},
-    {code:"NL",emoji:"🇳🇱",name:"荷兰"},
+    {code:"US",emoji:"🇺🇸",name:"美国", proxyipDomain:"us‑xxx.proxy.test"},
+    {code:"JP",emoji:"🇯🇵",name:"日本", proxyipDomain:"jp‑aaa.proxy.test"},
+    {code:"SG",emoji:"🇸🇬",name:"新加坡", proxyipDomain:"sg‑bbb.proxy.test"},
+    {code:"DE",emoji:"🇩🇪",name:"德国", proxyipDomain:"de‑ccc.proxy.test"},
+    {code:"GB",emoji:"🇬🇧",name:"英国", proxyipDomain:"gb‑ddd.proxy.test"},
+    {code:"KR",emoji:"🇰🇷",name:"韩国", proxyipDomain:"kr‑eee.proxy.test"},
+    {code:"CA",emoji:"🇨🇦",name:"加拿大", proxyipDomain:"ca‑fff.proxy.test"},
+    {code:"FR",emoji:"🇫🇷",name:"法国", proxyipDomain:"fr‑ggg.proxy.test"},
+    {code:"AU",emoji:"🇦🇺",name:"澳大利亚", proxyipDomain:"au‑hhh.proxy.test"},
+    {code:"NL",emoji:"🇳🇱",name:"荷兰", proxyipDomain:"nl‑iii.proxy.test"},
 ];
-
 //渲染国家选择框
 function renderCountries(){
     const container = document.getElementById("countries-container");
