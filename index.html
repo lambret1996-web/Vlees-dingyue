@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多国家VLESS订阅转换器</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-globe-americas"></i> 多国家VLESS订阅转换器</h1>
+            <p class="subtitle">为小火箭(Shadowrocket)生成多国家VLESS订阅链接</p>
+        </header>
+
+        <main>
+            <div class="config-section">
+                <div class="form-group">
+                    <label for="uuid"><i class="fas fa-key"></i> UUID</label>
+                    <input type="text" id="uuid" placeholder="请输入UUID (必填)" value="">
+                    <button class="btn-small" onclick="generateUUID()">生成UUID</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="host"><i class="fas fa-server"></i> Host / SNI</label>
+                    <input type="text" id="host" placeholder="请输入Host/SNI (可选)" value="">
+                </div>
+
+                <div class="form-group">
+                    <label for="premium-ip"><i class="fas fa-bolt"></i> 优选IP（可选）</label>
+                    <input type="text" id="premium-ip" placeholder="例如: 1.2.3.4 (可选)">
+                    <p class="help-text">如果留空，将使用对应国家的域名</p>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-flag"></i> 选择国家</label>
+                    <div class="countries-grid" id="countries-container">
+                        <!-- 国家选项将通过JS动态生成 -->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="port"><i class="fas fa-plug"></i> 端口</label>
+                    <input type="number" id="port" value="443" min="1" max="65535">
+                    <p class="help-text">默认使用443端口</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="remarks"><i class="fas fa-sticky-note"></i> 备注前缀</label>
+                    <input type="text" id="remarks" placeholder="例如: VLESSCF" value="VLESS">
+                </div>
+
+                <div class="buttons">
+                    <button class="btn-primary" onclick="generateSubscriptions()">
+                        <i class="fas fa-magic"></i> 生成订阅链接
+                    </button>
+                    <button class="btn-secondary" onclick="copyAll()">
+                        <i class="fas fa-copy"></i> 复制全部
+                    </button>
+                    <button class="btn-secondary" onclick="resetForm()">
+                        <i class="fas fa-redo"></i> 重置
+                    </button>
+                </div>
+            </div>
+
+            <div class="result-section" id="result-section" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-link"></i> 生成的订阅链接</h2>
+                    <button class="btn-small" onclick="copySubscription()">
+                        <i class="fas fa-copy"></i> 复制全部订阅
+                    </button>
+                </div>
+                
+                <div class="subscription-box">
+                    <textarea id="subscription-output" readonly></textarea>
+                </div>
+
+                <div class="qr-section">
+                    <h3><i class="fas fa-qrcode"></i> 二维码</h3>
+                    <div class="qr-container">
+                        <div id="qrcode"></div>
+                        <p class="qr-help">使用小火箭扫描二维码导入全部配置</p>
+                    </div>
+                </div>
+
+                <div class="individual-links">
+                    <h3><i class="fas fa-list"></i> 单个配置链接</h3>
+                    <div class="links-container" id="individual-links">
+                        <!-- 单个国家的链接将在这里显示 -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h2><i class="fas fa-info-circle"></i> 使用说明</h2>
+                <ol>
+                    <li>填写 UUID（必填），可以使用生成的UUID或您自己的</li>
+                    <li>可选：填写Host/SNI（如果服务器需要）</li>
+                    <li>可选：填写优选IP（将替代域名解析）</li>
+                    <li>选择要生成的国家节点（默认全选）</li>
+                    <li>点击"生成订阅链接"按钮</li>
+                    <li>复制生成的订阅链接，在小火箭中导入</li>
+                    <li>或者扫描二维码直接导入</li>
+                </ol>
+                
+                <div class="note">
+                    <h3><i class="fas fa-lightbulb"></i> 注意事项</h3>
+                    <ul>
+                        <li>路径格式：/proxyip=国家代码.proxyip.cmliussss.net</li>
+                        <li>默认端口：443（WebSocket over TLS）</li>
+                        <li>传输协议：WebSocket</li>
+                        <li>TLS加密：始终启用</li>
+                        <li>支持国家：美国、日本、新加坡、德国、英国、韩国、加拿大、法国、澳大利亚、荷兰</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>部署在 Cloudflare Pages | 适用于小火箭(Shadowrocket) | © 2024 VLESS Converter</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
