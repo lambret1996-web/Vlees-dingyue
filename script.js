@@ -48,7 +48,7 @@ function toggleCountry(code) {
 }
 
 // 生成UUID
-function generateUUID() {
+/*function generateUUID() {
     const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         const r = Math.random() * 16 | 0;
         const v = c === 'x' ? r : (r & 0x3 | 0x8);
@@ -57,7 +57,7 @@ function generateUUID() {
     document.getElementById('uuid').value = uuid;
     showToast('UUID已生成');
 }
-
+*/
 // 生成VLESS配置
 function generateVlessConfig(country, uuid, host, premiumIp, port, remarks) {
     const address = premiumIp || `${country.code.toLowerCase()}.proxyip.cmliussss.net`;
