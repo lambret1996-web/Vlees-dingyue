@@ -1,4 +1,4 @@
-// script.js
+// script.js 纯前端VLESS链接生成器，无后端，浏览器本地运算
 let countries = [
     {code:"US",emoji:"🇺🇸",name:"美国"},
     {code:"JP",emoji:"🇯🇵",name:"日本"},
@@ -18,7 +18,7 @@ function renderCountries(){
     container.innerHTML = "";
     countries.forEach(c=>{
         const div = document.createElement("div");
-        div.className = "country-checkbox";
+        div.className = "country-checkbox selected";
         div.dataset.code = c.code;
         div.innerHTML = `
             <input type="checkbox" class="country-check" data-code="${c.code}" checked>
@@ -34,19 +34,18 @@ function renderCountries(){
         };
         const inp = div.querySelector("input");
         inp.onchange=()=>div.classList.toggle("selected",inp.checked);
-        div.classList.add("selected");
         container.appendChild(div);
     })
 }
 
-//生成UUID
+//生成UUID（浏览器本地）
 function generateUUID(){
     const uuid = crypto.randomUUID();
     document.getElementById("uuid").value = uuid;
     showToast("已生成UUID");
 }
 
-//获取选中国家
+//获取勾选的国家
 function getSelectedCountries(){
     const checks = document.querySelectorAll(".country-check:checked");
     const sel = [];
@@ -58,17 +57,25 @@ function getSelectedCountries(){
     return sel;
 }
 
-//生成单条vless链接
+/**
+ * 【核心】拼接标准VLESS分享链接字符串 vless:// 开头
+ * 只做字符串拼接，不连接任何服务器
+ */
 function generateVlessConfig(country,uuid,host,premiumIp,port,remarks){
     const remark = `${remarks}-${country.name}`;
     const path = `/proxyip=${country.code}.proxyip.cmliussss.net`;
-    let addr = host;
+    let addr = host.trim();
     if(premiumIp.trim()!=="") addr = premiumIp.trim();
+
+    // 标准vless参数，对应Xray/V2ray规范
     const params = new URLSearchParams();
     params.set("type","ws");
     params.set("security","tls");
+    params.set("encryption","none");
     params.set("path",path);
-    params.set("sni",host);
+    params.set("sni",host.trim());
+
+    // ✅输出标准 vless:// 链接，不是http
     return `vless://${uuid}@${addr}:${port}?${params.toString()}#${encodeURIComponent(remark)}`;
 }
 
@@ -81,7 +88,7 @@ function generateSubscriptions(){
     const remarks = document.getElementById("remarks").value.trim();
 
     if(!uuid){ showToast("请填写UUID",true);return; }
-    if(!host){ showToast("请填写Host",true);return; }
+    if(!host){ showToast("请填写Host/SNI",true);return; }
 
     const selectedCountries = getSelectedCountries();
     if(selectedCountries.length===0){ showToast("请至少选择一个国家",true);return; }
@@ -92,6 +99,7 @@ function generateSubscriptions(){
     selectedCountries.forEach(country => {
         const config = generateVlessConfig(country, uuid, host, premiumIp, port, remarks);
         configs.push(config);
+        //渲染单条链接html
         individualLinks.push(`
             <div class="link-item">
                 <div>
@@ -105,24 +113,24 @@ function generateSubscriptions(){
         `);
     });
 
+    //多行文本输出，每一行一条vless://链接，用于小火箭订阅
     const allText = configs.join("\n");
     document.getElementById("subscription-output").value = allText;
 
-    //渲染单链接
     document.getElementById("individual-links").innerHTML = individualLinks.join("");
     document.getElementById("result-section").style.display = "block";
 
-    //二维码
+    //生成二维码
     try{
         const qrDom = document.getElementById("qrcode");
         qrDom.innerHTML="";
         new QRCode(qrDom, {text:allText,width:220,height:220});
     }catch(e){console.error(e)}
 
-    showToast("生成完成");
+    showToast("VLESS配置生成完成");
 }
 
-//复制到剪贴板
+//复制剪贴板
 async function copyToClipboard(text){
     try{
         await navigator.clipboard.writeText(text);
@@ -149,6 +157,7 @@ function resetForm(){
     renderCountries();
 }
 
+//提示弹窗
 function showToast(msg,isError=false){
     let t = document.querySelector(".toast");
     if(!t){
