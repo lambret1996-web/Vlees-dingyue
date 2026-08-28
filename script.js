@@ -1,14 +1,14 @@
 // script.js 纯前端VLESS链接生成器，无后端，浏览器本地运算
 let countries = [
-    {code:"US",emoji:"🇺🇸",name:"美国", proxyipDomain:"proxyip.cmliussss.net"},
+    {code:"US",emoji:"🇺🇸",name:"美国", proxyipDomain:"64.23.161.169"},
     {code:"JP",emoji:"🇯🇵",name:"日本", proxyipDomain:"2001:19f0:7002:1001:5400:6ff:fe24:c2cf"},
     {code:"SG",emoji:"🇸🇬",name:"新加坡", proxyipDomain:"77.93.90.231"},
-    {code:"DE",emoji:"🇩🇪",name:"德国", proxyipDomain:"67.207.80.155"},
+    {code:"DE",emoji:"🇩🇪",name:"德国", proxyipDomain:"104.194.159.48"},
     {code:"GB",emoji:"🇬🇧",name:"英国", proxyipDomain:"68.168.31.169"},
     {code:"KR",emoji:"🇰🇷",name:"韩国", proxyipDomain:"43.128.130.43"},
-    {code:"CA",emoji:"🇨🇦",name:"加拿大", proxyipDomain:"ca‑fff.proxy.test"},
-    {code:"FR",emoji:"🇫🇷",name:"法国", proxyipDomain:"fr‑ggg.proxy.test"},
-    {code:"AU",emoji:"🇦🇺",name:"澳大利亚", proxyipDomain:"au‑hhh.proxy.test"},
+    {code:"CA",emoji:"🇨🇦",name:"加拿大", proxyipDomain:"40.233.71.238"},
+    {code:"FR",emoji:"🇫🇷",name:"法国", proxyipDomain:"135.125.57.244"},
+    {code:"AU",emoji:"🇦🇺",name:"澳大利亚", proxyipDomain:"207.148.81.4"},
     {code:"NL",emoji:"🇳🇱",name:"荷兰", proxyipDomain:"213.188.223.161"},
 ];
 //渲染国家选择框
