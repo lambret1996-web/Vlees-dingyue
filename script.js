@@ -3,13 +3,13 @@ let countries = [
     {code:"US",emoji:"🇺🇸",name:"美国", proxyipDomain:"us‑xxx.proxy.test"},
     {code:"JP",emoji:"🇯🇵",name:"日本", proxyipDomain:"2001:19f0:7002:1001:5400:6ff:fe24:c2cf"},
     {code:"SG",emoji:"🇸🇬",name:"新加坡", proxyipDomain:"sg‑bbb.proxy.test"},
-    {code:"DE",emoji:"🇩🇪",name:"德国", proxyipDomain:"de‑ccc.proxy.test"},
-    {code:"GB",emoji:"🇬🇧",name:"英国", proxyipDomain:"gb‑ddd.proxy.test"},
+    {code:"DE",emoji:"🇩🇪",name:"德国", proxyipDomain:"67.207.80.155"},
+    {code:"GB",emoji:"🇬🇧",name:"英国", proxyipDomain:"68.168.31.169"},
     {code:"KR",emoji:"🇰🇷",name:"韩国", proxyipDomain:"kr‑eee.proxy.test"},
     {code:"CA",emoji:"🇨🇦",name:"加拿大", proxyipDomain:"ca‑fff.proxy.test"},
     {code:"FR",emoji:"🇫🇷",name:"法国", proxyipDomain:"fr‑ggg.proxy.test"},
     {code:"AU",emoji:"🇦🇺",name:"澳大利亚", proxyipDomain:"au‑hhh.proxy.test"},
-    {code:"NL",emoji:"🇳🇱",name:"荷兰", proxyipDomain:"nl‑iii.proxy.test"},
+    {code:"NL",emoji:"🇳🇱",name:"荷兰", proxyipDomain:"213.188.223.161"},
 ];
 //渲染国家选择框
 function renderCountries(){
