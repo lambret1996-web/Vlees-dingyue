@@ -1,4 +1,4 @@
-// Cloudflare Worker处理订阅请求
+// Cloudflare Worker处理订阅请求.
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
