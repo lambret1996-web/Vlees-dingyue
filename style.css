@@ -317,23 +317,23 @@ footer {
     main {
         grid-template-columns: 1fr;
     }
-    
+    
     .countries-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
-    
+    
     .links-container {
         grid-template-columns: 1fr;
     }
-    
+    
     .buttons {
         flex-direction: column;
     }
-    
+    
     button {
         width: 100%;
     }
-    
+    
     .btn-small {
         width: auto;
         margin-top: 10px;
