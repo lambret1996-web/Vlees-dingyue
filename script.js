@@ -1,15 +1,15 @@
 // script.js 纯前端VLESS链接生成器，无后端，浏览器本地运算
 let countries = [
-    {code:"US",emoji:"🇺🇸",name:"美国", proxyipDomain:"64.23.161.169"},
-    {code:"JP",emoji:"🇯🇵",name:"日本", proxyipDomain:"2001:19f0:7002:1001:5400:6ff:fe24:c2cf"},
-    {code:"SG",emoji:"🇸🇬",name:"新加坡", proxyipDomain:"77.93.90.231"},
-    {code:"DE",emoji:"🇩🇪",name:"德国", proxyipDomain:"104.194.159.48"},
-    {code:"GB",emoji:"🇬🇧",name:"英国", proxyipDomain:"68.168.31.169"},
-    {code:"KR",emoji:"🇰🇷",name:"韩国", proxyipDomain:"20.41.123.20"},
-    {code:"CA",emoji:"🇨🇦",name:"加拿大", proxyipDomain:"40.233.71.238"},
-    {code:"FR",emoji:"🇫🇷",name:"法国", proxyipDomain:"135.125.57.244"},
-    {code:"AU",emoji:"🇦🇺",name:"澳大利亚", proxyipDomain:"207.148.81.4"},
-    {code:"NL",emoji:"🇳🇱",name:"荷兰", proxyipDomain:"213.188.223.161"},
+    {code:"US",emoji:"🇺🇸",name:"美国", proxyipDomain:"ProxyIP.US.CMLiussss.net"},
+    {code:"JP",emoji:"🇯🇵",name:"日本", proxyipDomain:"ProxyIP.jp.CMLiussss.net"},
+    {code:"SG",emoji:"🇸🇬",name:"新加坡", proxyipDomain:"ProxyIP.sg.CMLiussss.net"},
+    {code:"DE",emoji:"🇩🇪",name:"德国", proxyipDomain:"ProxyIP.de.CMLiussss.net"},
+    {code:"GB",emoji:"🇬🇧",name:"英国", proxyipDomain:"ProxyIP.gb.CMLiussss.net"},
+    {code:"KR",emoji:"🇰🇷",name:"韩国", proxyipDomain:"ProxyIP.kr.CMLiussss.net"},
+    {code:"CA",emoji:"🇨🇦",name:"加拿大", proxyipDomain:"ProxyIP.ca.CMLiussss.net"},
+    {code:"FR",emoji:"🇫🇷",name:"法国", proxyipDomain:"ProxyIP.fr.CMLiussss.net"},
+    {code:"AU",emoji:"🇦🇺",name:"澳大利亚", proxyipDomain:"ProxyIP.au.CMLiussss.net"},
+    {code:"NL",emoji:"🇳🇱",name:"荷兰", proxyipDomain:"ProxyIP.nl.CMLiussss.net"},
 ];
 //渲染国家选择框
 function renderCountries(){
